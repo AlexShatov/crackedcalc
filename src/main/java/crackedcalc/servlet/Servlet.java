@@ -59,6 +59,8 @@ public class Servlet extends HttpServlet {
 			} else {
 				solution.setValue("Can not divide by zero");
 			}
+		}else {
+			solution.setValue("Undefined operation");
 		}
 		String toResp = gson.toJson(solution);
 		resp.setContentType("text/JSON");
