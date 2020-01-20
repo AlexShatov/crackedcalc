@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <title>CrackedCalc</title>
   </head>
   <body>
@@ -24,19 +24,39 @@
       <input id="solution" type="text" name="solution" readonly/> 
       <br/>
       <br/>
-      <input type="button" value="Add" onclick="solve(event)">
-      <input type="button" value="Substract" onclick="solve(event)">
-      <input type="button" value="Multiply" onclick="solve(event)">
-      <input type="button" value="Divide" onclick="solve(event)">
+      <input type="button" value="Add" onclick="add()">
+      <input type="button" value="Substract" onclick="substract()">
+      <input type="button" value="Multiply" onclick="multiply()">
+      <input type="button" value="Divide" onclick="divide()">
     </form>
     <script  type="text/javascript">
-	    function solve(event) {
+	    function add(event) {
 	    	$.ajax({    
 	            url: $("#form").attr('action'),
 	            data: JSON.stringify({
 	        	  			value: document.getElementById('value').value,
 	        	  			oneMoreValue: document.getElementById('secondvalue').value,
-	        	  			operation: event.currentTarget.value
+	        	  			operation: 'add'
+	            	  	}),
+	            type: 'GET',
+	            contentType: "application/json; charset=utf-8",
+	            dataType: 'json',
+	            success: function(data){
+	                    	document.getElementById('solution').value = data.value;
+	            		},
+	            error: function(data){
+	            	 document.getElementById('solution').value = 'ERROR';
+	            }
+	        });
+	    } 
+	    
+	    function substract() {
+	    	$.ajax({    
+	            url: $("#form").attr('action'),
+	            data: JSON.stringify({
+	        	  			value: document.getElementById('value').value,
+	        	  			oneMoreValue: document.getElementById('secondvalue').value,
+	        	  			operation: 'add'
 	            	  	}),
 	            type: 'POST',
 	            contentType: "application/json; charset=utf-8",
@@ -46,6 +66,46 @@
 	            		},
 	            error: function(data){
 	            	 document.getElementById('solution').value = 'ERROR';
+	            }
+	        });
+	    } 
+	    
+	    function multiply() {
+	    	$.ajax({    
+	            url: $("#form").attr('action'),
+	            data: JSON.stringify({
+	        	  			value: document.getElementById('value').value,
+	        	  			oneMoreValue: document.getElementById('secondvalue'),
+	        	  			operation: 'multiply'
+	            	  	}),
+	            type: 'POST',
+	            contentType: "application/json; charset=utf-8",
+	            dataType: 'json',
+	            success: function(data){
+	                    	document.getElementById('solution').value = data.value;
+	            		},
+	            error: function(data){
+	            	 document.getElementById('solution').value = 'ERROR';
+	            }
+	        });
+	    } 
+	    
+	    function divide() {
+	    	$.ajax({    
+	            url: $("#form").attr('action'),
+	            data: JSON.stringify({
+	        	  			value: document.getElementById('value').value,
+	        	  			oneMoreValue: document.getElementById('secondvalue').value,
+	        	  			operation: 'divide'
+	            	  	}),
+	            type: 'POST',
+	            contentType: "application/json; charset=utf-8",
+	            dataType: 'json',
+	            success: function(data){
+	                    	document.getElementById('solution').value = data.value;
+	            		},
+	            error: function(data){
+	            	 document.getElementById('slution').value = 'ERROR';
 	            }
 	        });
 	    } 

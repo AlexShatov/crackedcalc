@@ -19,7 +19,8 @@ public class Servlet extends HttpServlet {
 	
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws IOException, ServletException{
 		getServletContext().getRequestDispatcher("/Page.jsp").forward(req,resp);
 	}
 	
@@ -42,17 +43,17 @@ public class Servlet extends HttpServlet {
 		Double result = null;
 		String operation = values.getOperation();
 		Solution solution = new Solution();
-		if(operation.equals("Add")) {
+		if(operation.equals("add")) {
 			result = value1 + value2;
 			solution.setValue(result.toString());
 		}else if(operation.equals("Substract")) {
 			result = value1 - value2;
 			solution.setValue(result.toString());
-		}else if(operation.equals("Multiply")) {
+		}else if(operation.equals("multiply")) {
 			result = value1 * value2;
 			solution.setValue(result.toString());
-		}else if(operation.equals("Divide"))  {
-			if(value2 != 0) {
+		}else if(operation.equals("divide"))  {
+			if(value1 != 0) {
 				result = value1 / value2;
 				solution.setValue(result.toString());
 			} else {
