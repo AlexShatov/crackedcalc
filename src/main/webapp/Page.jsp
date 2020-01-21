@@ -41,12 +41,8 @@
 	            type: 'GET',
 	            contentType: "application/json; charset=utf-8",
 	            dataType: 'json',
-	            success: function(data){
-	                    	document.getElementById('solution').value = data.value;
-	            		},
-	            error: function(data){
-	            	 document.getElementById('solution').value = 'ERROR';
-	            }
+	            success: (data) => document.getElementById('solution').value = data.value,
+	            error: (data) => document.getElementById('solution').value = 'ERROR'
 	        });
 	    } 
 	    
@@ -61,12 +57,8 @@
 	            type: 'POST',
 	            contentType: "application/json; charset=utf-8",
 	            dataType: 'json',
-	            success: function(data){
-	                    	document.getElementById('solution').value = data.value;
-	            		},
-	            error: function(data){
-	            	 document.getElementById('solution').value = 'ERROR';
-	            }
+	            success: (data) => document.getElementById('solution').value = data.value,
+	            error: (data) => document.getElementById('solution').value = 'ERROR'
 	        });
 	    } 
 	    
@@ -81,12 +73,8 @@
 	            type: 'POST',
 	            contentType: "application/json; charset=utf-8",
 	            dataType: 'json',
-	            success: function(data){
-	                    	document.getElementById('solution').value = data.value;
-	            		},
-	            error: function(data){
-	            	 document.getElementById('solution').value = 'ERROR';
-	            }
+	            success: (data) => document.getElementById('solution').value = data.value,
+	            error: (data) => document.getElementById('solution').value = 'ERROR'
 	        });
 	    } 
 	    
@@ -101,12 +89,8 @@
 	            type: 'POST',
 	            contentType: "application/json; charset=utf-8",
 	            dataType: 'json',
-	            success: function(data){
-	                    	document.getElementById('solution').value = data.value;
-	            		},
-	            error: function(data){
-	            	 document.getElementById('slution').value = 'ERROR';
-	            }
+	            success: (data) => document.getElementById('solution').value = data.value,
+	            error: (data) => document.getElementById('slution').value = 'ERROR'
 	        });
 	    } 
 	    
